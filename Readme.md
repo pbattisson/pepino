@@ -12,4 +12,4 @@ TO DO:
 2. Create a test from these test steps
 3. Save tests into a class
 4. Update test class with new information (cool button or not?)
-5. Clever stuff? (Run all tests, display scenarios, feature feedback, source control integration, Chatter/social, jenkins/ant tools, mobile, REST API)
+5. Clever stuff? (Run all tests, display scenarios, feature feedback, source control integration, Chatter/social, jenkins/ant tools, mobile, REST API, Eclipse/Sublime Text plugin)
