@@ -7,9 +7,12 @@ It takes in a Gherkin like file that is then parsed to create a set of test clas
 
 TO DO:
 ------
-0. Ability to load and read a Gherkin style file (load, upload, store online?)
-1. Create a set of test steps from this file
-2. Create a test from these test steps
-3. Save tests into a class
-4. Update test class with new information (cool button or not?)
-5. Clever stuff? (Run all tests, display scenarios, feature feedback, source control integration, Chatter/social, jenkins/ant tools, mobile, REST API, Eclipse/Sublime Text plugin)
+0. Upload a Gherkin file - CAROLINA
+1. Parse a Gherkin file into Given/And/When/Then steps - PAUL
+2. Generate a template test class from this feature (class) and scenarios (methods) ( Generate method )
+3. Create pattern matching stuff
+4. Create UI ( vf page ?? nice Flat UI )
+5. Create Run Method 
+6. Make sure that System.assert ALWAYS FALSE!!!!BUUUU
+7. Submit ideas - PAUL/CAROLINA
+8. Mobile ( HTML5 )
