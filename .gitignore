@@ -1,5 +1,5 @@
 *.sublime-project
 *.sublime-workspace
 .DS_Store
-/config/*
-/apex-scripts/*
+config/*
+apex-scripts/*
