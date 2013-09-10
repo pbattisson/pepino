@@ -55,7 +55,7 @@ public with sharing class FunctionRetrieverTest
 		try
 		{
 			FunctionRetriever retriever = new FunctionRetriever(null);
-			Map<String, String> retrievedMatches = retriever.retrieveCorrectFunctions(new Set<String>());
+			Map<String, String> retrievedMatches = retriever.retrieveCorrectStepDefinition(new Set<String>());
 			System.assertNotEquals(retrievedMatches, null);	
 		}
 		catch(Exception e)
@@ -70,7 +70,7 @@ public with sharing class FunctionRetrieverTest
 		try
 		{
 			FunctionRetriever retriever = new FunctionRetriever(null);
-			Map<String, String> retrievedMatches = retriever.retrieveCorrectFunctions(new Set<String>());
+			Map<String, String> retrievedMatches = retriever.retrieveCorrectStepDefinition(new Set<String>());
 			System.assertNotEquals(retrievedMatches, null);	
 		}
 		catch(Exception e)
@@ -83,7 +83,7 @@ public with sharing class FunctionRetrieverTest
 	private static void testRetrieve()
 	{
 		FunctionRetriever retriever = new FunctionRetriever(getTestMap());
-		Map<String, String> matches = retriever.retrieveCorrectFunctions(getTestSet());
+		Map<String, String> matches = retriever.retrieveCorrectStepDefinition(getTestSet());
 
 		System.assertEquals('I have entered (.*) into the calculator', matches.get('I have entered 5 into the calculator'));
 		System.assertEquals('I have entered (.*) into the calculator', matches.get('I have entered 7 into the calculator'));
@@ -95,7 +95,7 @@ public with sharing class FunctionRetrieverTest
 	private static void testRetrieveFunctionWithParameters()
 	{
 		FunctionRetriever retriever = new FunctionRetriever(getTestMap());
-		Map<String, String> matches = retriever.retrieveCorrectFunctions(getTestSet());
+		Map<String, String> matches = retriever.retrieveCorrectStepDefinition(getTestSet());
 
 		System.assertEquals('I have entered (.*) into the calculator', matches.get('I have entered 5 into the calculator'));
 		System.assertEquals('I have entered (.*) into the calculator', matches.get('I have entered 7 into the calculator'));
