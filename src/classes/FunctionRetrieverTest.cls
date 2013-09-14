@@ -4,6 +4,7 @@ public with sharing class FunctionRetrieverTest
 	private static Map<String, String> getTestMap()
 	{
 		Map<String, String> testMap = new Map<String, String>();
+		testMap.put('I have a calculator', 'methodZero');
 		testMap.put('I have entered (.*) into the calculator', 'methodOne');
 		testMap.put('I press add', 'methodTwo');
 		testMap.put('the result should be (.*)', 'methodThree');
@@ -13,6 +14,7 @@ public with sharing class FunctionRetrieverTest
 	private static Set<String> getTestSet()
 	{
 		Set<String> testSet = new Set<String>();
+		testSet.add('I have a calculator');
 		testSet.add('I have entered 5 into the calculator');
 		testSet.add('I have entered 7 into the calculator');
 		testSet.add('I press add');
