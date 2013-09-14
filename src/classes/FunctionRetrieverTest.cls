@@ -5,9 +5,9 @@ public with sharing class FunctionRetrieverTest
 	{
 		Map<String, String> testMap = new Map<String, String>();
 		testMap.put('I have a calculator', 'methodZero');
-		testMap.put('I have entered (.*) into the calculator', 'methodOne');
+		testMap.put('I have entered (\\d+) into the calculator', 'methodOne');
 		testMap.put('I press add', 'methodTwo');
-		testMap.put('the result should be (.*)', 'methodThree');
+		testMap.put('the result should be (\\d+)', 'methodThree');
 		return testMap;
 	}
 
@@ -87,10 +87,10 @@ public with sharing class FunctionRetrieverTest
 		FunctionRetriever retriever = new FunctionRetriever(getTestMap());
 		Map<String, String> matches = retriever.retrieveCorrectStepDefinition(getTestSet());
 
-		System.assertEquals('I have entered (.*) into the calculator', matches.get('I have entered 5 into the calculator'));
-		System.assertEquals('I have entered (.*) into the calculator', matches.get('I have entered 7 into the calculator'));
+		System.assertEquals('I have entered (\\d+) into the calculator', matches.get('I have entered 5 into the calculator'));
+		System.assertEquals('I have entered (\\d+) into the calculator', matches.get('I have entered 7 into the calculator'));
 		System.assertEquals('I press add', matches.get('I press add'));
-		System.assertEquals('the result should be (.*)', matches.get('the result should be 12'));
+		System.assertEquals('the result should be (\\d+)', matches.get('the result should be 12'));
 	}
 
 	@isTest
@@ -99,10 +99,10 @@ public with sharing class FunctionRetrieverTest
 		FunctionRetriever retriever = new FunctionRetriever(getTestMap());
 		Map<String, String> matches = retriever.retrieveCorrectStepDefinition(getTestSet());
 
-		System.assertEquals('I have entered (.*) into the calculator', matches.get('I have entered 5 into the calculator'));
-		System.assertEquals('I have entered (.*) into the calculator', matches.get('I have entered 7 into the calculator'));
+		System.assertEquals('I have entered (\\d+) into the calculator', matches.get('I have entered 5 into the calculator'));
+		System.assertEquals('I have entered (\\d+) into the calculator', matches.get('I have entered 7 into the calculator'));
 		System.assertEquals('I press add', matches.get('I press add'));
-		System.assertEquals('the result should be (.*)', matches.get('the result should be 12'));
+		System.assertEquals('the result should be (\\d+)', matches.get('the result should be 12'));
 
 		Map<String, List<Object>> functionsWithParameters = retriever.retrieveFunctionsWithParameters(matches);
 
