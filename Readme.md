@@ -10,7 +10,7 @@ TO DO:
 - [ ] Upload a Gherkin file - CAROLINA
 - [ ] Parse a Gherkin file into Given/And/When/Then steps - PAUL
 - [ ] Generate a template test class from this feature (class) and scenarios (methods) ( Generate method )
-- [ ] Create pattern matching stuff
+- [x] Create pattern matching stuff
 - [ ] Create UI ( vf page ?? nice Flat UI )
 - [ ] Create Run Method 
 - [ ] Make sure that System.assert ALWAYS FALSE!!!!BUUUU

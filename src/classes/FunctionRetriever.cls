@@ -18,13 +18,13 @@ public with sharing class FunctionRetriever
 	}
 
 	/**
-	  * @description This method is used to retrieve a map of test steps to setp definitions for use. It matches the entry
-	  * against a step definition using the Levenshtein distance rather than using the regular expressions to match straight
-	  * away. This has been done fro speed and efficiency but could be changed in the future for increased accuracy if required.
+	  * @description This method is used to retrieve a map of test steps to step definitions for use. It matches the entry
+	  * against a step definition using the Levenshtein distance rather than using regular expressions to match straight
+	  * away. This has been done for speed and efficiency but could be changed in the future for increased accuracy if required.
 	  * @param testSteps The test steps to retrieve the correct step definitions for.
 	  * @return A map of the test steps to the correct step definition.
 	  */
-	public Map<String, String> retrieveCorrectStepDefinition(Set<String> testSteps)
+	public Map<String, String> retrieveCorrectStepDefinition(List<String> testSteps)
 	{
 		Map<String, String> bestMatches = new Map<String, String>();
 
