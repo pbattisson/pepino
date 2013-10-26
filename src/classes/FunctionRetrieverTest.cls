@@ -11,9 +11,9 @@ public with sharing class FunctionRetrieverTest
 		return testMap;
 	}
 
-	private static List<String> getTestSet()
+	private static Set<String> getTestSet()
 	{
-		List<String> testSet = new List<String>();
+		Set<String> testSet = new Set<String>();
 		testSet.add('Given I have a calculator');
 		testSet.add('And I have entered 5 into the calculator');
 		testSet.add('And I have entered 7 into the calculator');
@@ -57,7 +57,7 @@ public with sharing class FunctionRetrieverTest
 		try
 		{
 			FunctionRetriever retriever = new FunctionRetriever(null);
-			Map<String, String> retrievedMatches = retriever.retrieveCorrectStepDefinition(new List<String>());
+			Map<String, String> retrievedMatches = retriever.retrieveCorrectStepDefinition(new Set<String>());
 			System.assertNotEquals(retrievedMatches, null);	
 		}
 		catch(Exception e)
@@ -72,7 +72,7 @@ public with sharing class FunctionRetrieverTest
 		try
 		{
 			FunctionRetriever retriever = new FunctionRetriever(null);
-			Map<String, String> retrievedMatches = retriever.retrieveCorrectStepDefinition(new List<String>());
+			Map<String, String> retrievedMatches = retriever.retrieveCorrectStepDefinition(new Set<String>());
 			System.assertNotEquals(retrievedMatches, null);	
 		}
 		catch(Exception e)

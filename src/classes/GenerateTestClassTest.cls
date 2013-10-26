@@ -15,9 +15,9 @@ public with sharing class GenerateTestClassTest
 		return testMap;
 	}
 
-	private static List<String> getTestSet()
+	private static Set<String> getTestSet()
 	{
-		List<String> testSet = new List<String>();
+		Set<String> testSet = new Set<String>();
 		testSet.add('Given I have a calculator');
 		testSet.add('And I have entered 5 into the calculator');
 		testSet.add('And I have entered 7 into the calculator');
@@ -34,9 +34,11 @@ public with sharing class GenerateTestClassTest
 		Map<String, List<Object>> functionsWithParameters = retriever.retrieveFunctionsWithParameters(definitions);
 		
 		Map<String, List<String>> scenariosWithSteps = new Map<String, List<String>>();
-		scenariosWithSteps.put('Addition of 5 and 7 gives 12', getTestSet());
+		List<String> steps = new List<String>();
+		steps.addAll(getTestSet());
+		scenariosWithSteps.put('Addition of 5 and 7 gives 12', steps);
 
-		GenerateTestClass gtc = new GenerateTestClass('Addition Testing', getTestMap(), 'CalculatorBehaviourDefinitions');
+		GenerateTestClass gtc = new GenerateTestClass('Addition Testing', new CalculatorBehaviourDefinitions());
 		gtc.buildTestSteps(definitions, functionsWithParameters, scenariosWithSteps);
 		System.debug(gtc.returnClass());
 	}
