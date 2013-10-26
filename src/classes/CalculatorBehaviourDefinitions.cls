@@ -4,6 +4,16 @@ public with sharing class CalculatorBehaviourDefinitions implements BehaviourDef
 		
 	}
 
+	public Map<String, String> functionDeclarationMap()
+	{
+		Map<String, String> definitions = new Map<String, String>();
+		definitions.put('Given I have a calculator', 'createCalculator');
+		definitions.put('And I have entered (\\d+) into the calculator', 'enterValue');
+		definitions.put('When I press add', 'addValues');
+		definitions.put('Then the result should be (\\d+)', 'assertResult');
+		return definitions;
+	}
+
 	public String getStepCodeForFunctionWithParameters(String functionName, List<Object> parameters)
 	{
 		if(functionName == 'createCalculator')

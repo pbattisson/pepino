@@ -6,24 +6,19 @@ public with sharing class GenerateTestClass
 {
 	private String contentString = '';
 	private Map<String, String> functionMap;
-	private String typeName = '';
+	private BehaviourDefinitions defClass;
 
-	public GenerateTestClass(String featureName, Map<String, String> funcMap, String defTypeName)
+	public GenerateTestClass(String featureName, BehaviourDefinitions definitionClass)
 	{
 		if(featureName == null || featureName.length() < 10)
 		{
 			//Throw exception here!
 		}
 
-		if(funcMap == null || funcMap.keySet().size() == 0)
-		{
-			//Throw exception here
-		}
-
 		contentString += '@isTest\npublic with sharing class ' + featureName.replaceAll(' ', '_') + '\n{\n';
-		functionMap = funcMap;
-		typeName = defTypeName;
-
+		
+		defClass = definitionClass;
+		functionMap = defClass.functionDeclarationMap();
 		System.debug(contentString);
 	}
 
@@ -35,11 +30,7 @@ public with sharing class GenerateTestClass
 
 			for(String testStep : scenariosWithSteps.get(scenario))
 			{
-				BehaviourDefinitions def = (BehaviourDefinitions)Type.forName(typeName).newInstance();
-
-				System.debug('PAUL 1 STEP DEF : ' + functionMap.get(definitions.get(testStep)) + ' : ' + testStep);
-				System.debug('PAUL 2 STEP PARAMS : ' + stepsWithParameters.get(testStep));
-				testContent += def.getStepCodeForFunctionWithParameters(functionMap.get(definitions.get(testStep)), stepsWithParameters.get(testStep));
+				testContent += defClass.getStepCodeForFunctionWithParameters(functionMap.get(definitions.get(testStep)), stepsWithParameters.get(testStep)) + '\n';
 			}
 
 			testContent += '\n}\n';

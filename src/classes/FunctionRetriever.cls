@@ -24,7 +24,7 @@ public with sharing class FunctionRetriever
 	  * @param testSteps The test steps to retrieve the correct step definitions for.
 	  * @return A map of the test steps to the correct step definition.
 	  */
-	public Map<String, String> retrieveCorrectStepDefinition(List<String> testSteps)
+	public Map<String, String> retrieveCorrectStepDefinition(Set<String> testSteps)
 	{
 		Map<String, String> bestMatches = new Map<String, String>();
 
