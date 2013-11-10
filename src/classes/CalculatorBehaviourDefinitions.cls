@@ -7,10 +7,12 @@ public with sharing class CalculatorBehaviourDefinitions implements BehaviourDef
 	public Map<String, String> functionDeclarationMap()
 	{
 		Map<String, String> definitions = new Map<String, String>();
-		definitions.put('Given I have a calculator', 'createCalculator');
-		definitions.put('And I have entered (\\d+) into the calculator', 'enterValue');
-		definitions.put('When I press add', 'addValues');
-		definitions.put('Then the result should be (\\d+)', 'assertResult');
+		definitions.put('I have a calculator', 'createCalculator');
+		
+		definitions.put('I have entered (\\d+) into the calculator', 'enterValue');
+		definitions.put('I press add', 'addValues');
+		definitions.put('I press divide', 'divideValues');
+		definitions.put('the result should be (\\d+)', 'assertResult');
 		return definitions;
 	}
 
@@ -27,6 +29,10 @@ public with sharing class CalculatorBehaviourDefinitions implements BehaviourDef
 		else if(functionName == 'addValues')
 		{
 			return addValues();
+		}
+		else if(functionName == 'divideValues')
+		{
+			return divideValues();
 		}
 		else if(functionName == 'assertResult')
 		{
@@ -48,7 +54,12 @@ public with sharing class CalculatorBehaviourDefinitions implements BehaviourDef
 
 	private String addValues()
 	{
-		return 'Double output = calc.add();'; 
+		return 'Double output = 0.0;try{output = calc.add();}catch(Exception ex){System.assert(false, ex.getMessage());}'; 
+	}
+
+	private String divideValues()
+	{
+		return 'Double output = 0.0;try{output = calc.divide();}catch(Exception ex){System.assert(false, ex.getMessage());}';
 	}
 
 	private String assertResult(Double dbl)

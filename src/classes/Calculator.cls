@@ -26,4 +26,14 @@ public with sharing class Calculator
 
 		return output;
 	}
+
+	public Double divide()
+	{
+		if(values.size() > 1 && values[1] == 0)
+		{
+			throw new PepinoException('Only Chuck Norris can divide by 0.');
+		}
+
+		return values[0]/values[1];
+	}
 }
