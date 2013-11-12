@@ -1,0 +1,50 @@
+<apex:page controller="FileReaderController">
+<style>
+.hideDiv{
+	display:none;
+}
+</style>
+<script type='text/javascript' src='/canvas/sdk/js/publisher.js'/> 
+		
+<apex:messages />
+<apex:pageBlock title="Upload Scenario">
+
+      <b>Hello <i>{!$User.FirstName}</i>!! 
+      <p></p>
+      Would you like to upload your file with the scenario?</b>
+  	
+	<apex:form >
+		<apex:actionRegion >
+  		 <apex:inputFile value="{!file}" filename="{!nameFile}" />
+  		<br/>	
+ 		 <apex:selectList id="accts" value="{!selectedApexClass}" size="1" title="Select Behaviour ">
+ 		 	<apex:outputLabel value="Select Behaviour"/>
+			<apex:selectOptions value="{!Items}"></apex:selectOptions>
+		 </apex:selectList>
+		
+			<apex:commandButton action="{!ReadFile}" value="Upload File for Behaviour" id="theButton" />
+		</apex:actionRegion>
+	
+ 		
+		
+ 	</apex:form>
+ 	<div class ="hideDiv">
+ 	<apex:pageBlock rendered="{!hasUploaded}" >
+	 	<script>
+	 	debugger;
+	 	//this.style.display='none';
+	 	//this.visible=false;
+	 	//this.hide();
+	 	this.onLoad = refreshFeed();
+	 	function refreshFeed() {
+	 	debugger;
+				Sfdc.canvas.publisher.publish({name : 'publisher.refresh', payload :
+				{feed:true}});
+		}
+		refreshFeed();
+		</script>
+	</apex:pageBlock>	
+	</div>
+ 	
+  </apex:pageBlock>
+</apex:page>
