@@ -17,13 +17,13 @@
 		<name>ApexTrigger</name>
 	</types>
 	<types>
-        <members>*</members>
-        <name>Layout</name>
-    </types>
-    <types>
-        <members>*</members>
-        <name>QuickAction</name>
-    </types>
+		<members>*</members>
+		<name>Layout</name>
+	</types>
+	<types>
+		<members>*</members>
+		<name>QuickAction</name>
+	</types>
 	<types>
 		<members>*</members>
 		<name>StaticResource</name>
