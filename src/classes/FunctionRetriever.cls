@@ -24,7 +24,7 @@ public with sharing class FunctionRetriever
 	  * @param testSteps The test steps to retrieve the correct step definitions for.
 	  * @return A map of the test steps to the correct step definition.
 	  */
-	public Map<String, String> retrieveCorrectStepDefinition(Set<String> testSteps)
+	public Map<String, String> retrieveCorrectStepDefinition(List<String> testSteps)
 	{
 		Map<String, String> bestMatches = new Map<String, String>();
 
@@ -66,6 +66,7 @@ public with sharing class FunctionRetriever
 
 			Pattern p = Pattern.compile(matches.get(step));
 			Matcher m = p.matcher(step);
+			System.debug('We are processing step ' + step + '  ' + m.matches());
 
 			if(m.matches())
 			{

@@ -17,7 +17,7 @@ public with sharing class Pepino
 
 	public Blob createTestClassForFeature()
 	{
-		Set<String> allSteps = new Set<String>();
+		List<String> allSteps = new List<String>();
 		for(String scenario : steps.keySet())
 		{
 			allSteps.addAll(steps.get(scenario));

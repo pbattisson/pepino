@@ -8,7 +8,6 @@ public with sharing class CalculatorBehaviourDefinitions implements BehaviourDef
 	{
 		Map<String, String> definitions = new Map<String, String>();
 		definitions.put('I have a calculator', 'createCalculator');
-		
 		definitions.put('I have entered (\\d+) into the calculator', 'enterValue');
 		definitions.put('I press add', 'addValues');
 		definitions.put('I press divide', 'divideValues');
@@ -24,6 +23,7 @@ public with sharing class CalculatorBehaviourDefinitions implements BehaviourDef
 		}
 		else if(functionName == 'enterValue')
 		{
+			System.debug(parameters);
 			return enterValue(Double.valueOf(parameters[0]));
 		}
 		else if(functionName == 'addValues')
