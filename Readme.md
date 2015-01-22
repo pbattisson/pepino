@@ -21,8 +21,20 @@ The first method returns a maps a step definition to a function call for the sys
 
 The second method takes in a function name from the previously defined map, along with a list of parameters and returns the code to be added to the test step as a string. This is required currently as there is no way of calling a method in a class dynamically (relfection) in apex currently (please upvote this idea to try and get this done https://success.salesforce.com/ideaView?id=08730000000BrVaAAK ). Should this support arrive - we will refactor and improve :-)
 
-Your feature file should use the Gherkin syntax https://github.com/cucumber/cucumber/wiki/Gherkin to define your feature and scenarios for turning into a code test. 
-
+Your feature file should use the Gherkin syntax https://github.com/cucumber/cucumber/wiki/Gherkin to define your feature and scenarios for turning into a code test. An example feature file would contain:
+```gherkin
+   Feature: Addition
+	   In order to avoid silly mistakes
+	   As a math idiot
+	   I want to be told the sum of 2 numbers
+ 
+	   Scenario: Add two numbers
+		   Given I have a calculator
+		   And I have entered 50 into the calculator
+		   And I have entered 70 into the calculator
+		   When I press add
+		   Then the result should be 120
+```
 ##Future Plans for Pepino
 
 1. Auto-upload of class to org
